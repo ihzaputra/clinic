@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- doodex.perawat form view -->
+    <record id="doodex_perawat_view_form" model="ir.ui.view">
+        <field name="name">Perawat Doodex</field>
+        <field name="model">doodex.perawat</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+
+                    <div>
+                        <h1>
+                            <field name="id_perawat" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="alamat"/>
+                        <field name="jenis_kelamin"/>
+                        <field name="tgl_lahir"/>
+                                
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- doodex.perawat tree view -->
+    <record id="doodex_perawat_view_tree" model="ir.ui.view">
+        <field name="name">Perawat Doodex</field>
+        <field name="model">doodex.perawat</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="id_perawat"/>
+                <field name="name"/>
+                <field name="alamat"/>
+                <field name="jenis_kelamin"/>
+                <field name="tgl_lahir"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- doodex.perawat action window -->
+    <record id="doodex_perawat_action" model="ir.actions.act_window">
+        <field name="name">Daftar Perawat</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">doodex.perawat</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="perawat_clinic_doodex_menu_act" 
+            name="Perawat" 
+            parent="pegawai_clinic_doodex_menu_categ" 
+            action="doodex_perawat_action" 
+            sequence="10"/>
+
+</odoo>

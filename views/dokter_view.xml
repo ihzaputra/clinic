@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- doodex.dokter form view -->
+    <record id="doodex_dokter_view_form" model="ir.ui.view">
+        <field name="name">Dokter Doodex</field>
+        <field name="model">doodex.dokter</field>
+        <field name="arch" type="xml">
+            <form string="Dokter">
+                <sheet>
+
+                    <div>
+                        <h1>
+                            <field name="id_dokter" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group name="Data Diri" string="Data Dokter">
+                        <field name="name"/>
+                        <field name="alamat"/>
+                        <field name="jenis_kelamin" required="1"/>
+                        <field name="tgl_lahir"/> 
+                    </group>
+
+                    <group name="Spesialis" string="Spesialis">
+                        <field name="spesialisasi" />
+                    </group>
+
+                    <!-- <group name="ID Dokter" string="ID Dokter">
+                        <field name="id_dokter" />
+                    </group> -->
+
+                    <group name="Gambar Dokter" string="Input Gambar Dokter">
+                        <field name="gambar" widget="image" class="oe_left oe_avatar" options="{&quot;zoom&quot;: true, &quot;preview_image&quot;:&quot;pictures&quot;}"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- doodex.dokter tree view -->
+    <record id="doodex_dokter_view_tree" model="ir.ui.view">
+        <field name="name">Dokter Doodex</field>
+        <field name="model">doodex.dokter</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="id_dokter"/>
+                <field name="name"/>
+                <field name="spesialisasi"/>
+                <field name="alamat"/>
+                <field name="jenis_kelamin"/>
+                <field name="tgl_lahir"/>  
+                <field name="gambar"/>
+                <!-- <field name="pendaftaran_pasien"/> -->
+            </tree>
+        </field>
+    </record>
+
+    <!-- doodex.dokter action window -->
+    <record id="doodex_dokter_action" model="ir.actions.act_window">
+        <field name="name">Daftar dokter</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">doodex.dokter</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="dokter_clinic_doodex_menu_act" 
+            name="Dokter" 
+            parent="pegawai_clinic_doodex_menu_categ" 
+            action="doodex_dokter_action" 
+            sequence="5"/>
+
+</odoo>

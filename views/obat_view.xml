@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- doodex.obat form view -->
+    <record id="doodex_obat_view_form" model="ir.ui.view">
+        <field name="name">Obat Doodex</field>
+        <field name="model">doodex.obat</field>
+        <field name="arch" type="xml">
+            <form string="Obat">
+                <sheet>
+                    <group name="Obat" string="Obat">
+                        <!-- Add your fields here -->
+                        <field name="name" />
+                        <field name="harga_modal" />
+                        <field name="harga_jual" />
+                        <field name="stok"/>
+                        <field name="gambar" widget="image" class="oe_left oe_avatar"/>
+                    </group>
+
+                    <group name="Jenis Obat" string="Jenis Obat">
+                        <field name="jenis_obat_id" />
+                    </group>
+
+                    <group name="supplier" string="Nama Supplier">
+                        <field name="supplier_ids" widget="many2many_tags"/>
+                    </group>
+
+                    <!-- <group name="resep" string="Resep">
+                        <field name="resep_ids" />
+                    </group> -->
+
+                    <!-- <group name="Mitra" string="Mitra">
+                        <field name="mitraklinik_id">
+                            <tree>
+                                <field name="name"/>
+                                <field name="alamat"/>
+                                <field name="obat_id" widget="many2many_tags"/>
+                            </tree>
+                        </field>
+                    </group> -->
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- doodex.obat tree view -->
+    <record id="doodex_obat_view_tree" model="ir.ui.view">
+        <field name="name">Obat Doodex</field>
+        <field name="model">doodex.obat</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name" />
+                <field name="harga_modal" />
+                <field name="harga_jual" />
+                <field name="stok"/>
+                <field name="jenis_obat_id" />
+                <field name="gambar"/>
+                <field name="supplier_ids" />
+                <!-- <field name="resep_ids"/> -->
+            </tree>
+        </field>
+    </record>
+
+    <!-- doodex.obat action window -->
+    <record id="doodex_obat_action" model="ir.actions.act_window">
+        <field name="name">Daftar Obat</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">doodex.obat</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="obat_clinic_doodex_menu_act" 
+            name="Obat Doodex" 
+            parent="obat_clinic_doodex_menu_categ" 
+            action="doodex_obat_action" 
+            sequence="5"/>
+
+</odoo>

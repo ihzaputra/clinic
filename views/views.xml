@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="clinic_doodex.list">
+      <field name="name">clinic_doodex list</field>
+      <field name="model">clinic_doodex.clinic_doodex</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="clinic_doodex.action_window">
+      <field name="name">clinic_doodex window</field>
+      <field name="res_model">clinic_doodex.clinic_doodex</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="clinic_doodex.action_server">
+      <field name="name">clinic_doodex server</field>
+      <field name="model_id" ref="model_clinic_doodex_clinic_doodex"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="clinic_doodex" id="clinic_doodex.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="clinic_doodex.menu_1" parent="clinic_doodex.menu_root"/>
+    <menuitem name="Menu 2" id="clinic_doodex.menu_2" parent="clinic_doodex.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="clinic_doodex.menu_1_list" parent="clinic_doodex.menu_1"
+              action="clinic_doodex.action_window"/>
+    <menuitem name="Server to list" id="clinic_doodex" parent="clinic_doodex.menu_2"
+              action="clinic_doodex.action_server"/>
+-->
+  </data>
+</odoo>

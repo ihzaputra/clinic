@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- doodex.pendaftaran form view -->
+    <record id="doodex_pasien_view_form" model="ir.ui.view">
+        <field name="name">Pendaftaran Doodex</field>
+        <field name="model">doodex.pendaftaran</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <!-- <field name="id_pendaftaran"/> -->
+                        <field name="nama"/>
+                        <field name="no_hp"/>
+                        <field name="umur"/>
+                        <field name="alamat"/>
+                        <field name="tgl_pendaftaran"/>
+                        <field name="state"/>
+                        <field name="keluhan"/>
+                        <!-- <field name="pasien_id"/> -->
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- doodex.pendaftaran tree view -->
+    <record id="doodex_pendaftaran_view_tree" model="ir.ui.view">
+        <field name="name">doodex.pendaftaran.view.tree</field>
+        <field name="model">doodex.pendaftaran</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <!-- <field name="id_pendaftaran"/> -->
+                <field name="nama"/>
+                <field name="no_hp"/>
+                <field name="umur"/>
+                <field name="alamat"/>
+                <field name="tgl_pendaftaran"/>
+                <field name="state"/>
+                <field name="keluhan"/>
+                <!-- <field name="pasien_id"/> -->
+            </tree>
+        </field>
+    </record>
+
+    <!-- doodex.pendaftaran action window -->
+    <record id="doodex_pendaftaran_action" model="ir.actions.act_window">
+        <field name="name">Pendaftaran Klinik Doodex</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">doodex.pendaftaran</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="pendaftaran_clinic_doodex_menu_act" 
+            name="Pendaftaran" 
+            parent="pendaftaran_clinic_doodex_menu_categ"
+            action="doodex_pendaftaran_action"
+            sequence="5"/>
+
+</odoo>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- doodex.penjualan.obat form view -->
+    <record id="doodex_penjualan_obat_view_form" model="ir.ui.view">
+        <field name="name">Penjualan Obat Doodex</field>
+        <field name="model">doodex.penjualan.obat</field>
+        <field name="arch" type="xml">
+            <form string="Form Penjualan Obat">
+
+                <header>
+                    <button string="Confirm" name="action_confirm" type="object" states='draft' class="oe_highlight" />
+                    <button string="Done" name="action_done" type="object" states='confirm' class="oe_highlight" />
+                    <button string="Cancel" name="action_cancel" type="object" states='confirm' confirm='apakah quotation ini akan di cancel?' class="oe_highlight"/>
+                    <button string="Draft" name="action_draft" type="object" states='cancel' confirm='apakah quotation ini akan di edit?' class="oe_highlight"/>
+                    <field name="state" widget='statusbar' statusbar_visible='draft, confirm, done'/>
+                </header>
+
+                <sheet>
+                    <div>
+                        <h1>
+                            <field name="referensi_penjualan_obat" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="tgl_penjualan" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </group>
+                        <group>
+                            <field name="total_bayar" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </group>
+                        <group>
+                            <field name="petugas_apotek_id" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>  
+                        </group>
+                    </group>
+                    <group name="daftarobat" string="Daftar Obat">
+                        <field name="detail_penjualan_obat_ids" attrs="{'readonly': [('state', '!=', 'draft')]}">
+                            <tree editable='bottom'>
+                                <field name="obat_id"/>
+                                <field name="harga_satuan"/>
+                                <field name="qty"/>
+                                <field name="subtotal" sum="Total"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- doodex.penjualan.obat tree view -->
+    <record id="doodex_penjualan_obat_view_tree" model="ir.ui.view">
+        <field name="name">Penjualan Obat Doodex</field>
+        <field name="model">doodex.penjualan.obat</field>
+        <field name="arch" type="xml">
+            <tree>
+                <button string="Print Laporan Penjualan Obat" name="%(clinic_doodex.report_penjualan_obat_pdf)d" type="action" icon="fa-print" class="oe_highlight"/>
+                <field name="referensi_penjualan_obat"/>
+                <field name="name"/>
+                <field name="tgl_penjualan"/>
+                <field name="total_bayar"/>
+                <field name="petugas_apotek_id"/>
+                <field name="detail_penjualan_obat_ids"/>   
+                <field name="state" 
+                decoration-danger="state == 'draft'"
+                decoration-muted="state == 'cancelled'"
+                decoration-info="state == 'confirm'"
+                decoration-primary="state == 'done'"
+                widget = "badge"/>        
+            </tree>
+        </field>
+    </record>
+
+    <!-- doodex.penjualan.obat action window -->
+    <record id="doodex_penjualan_obat_action" model="ir.actions.act_window">
+        <field name="name">Daftar Penjualan Obat</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">doodex.penjualan.obat</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="penjualan_obat_clinic_doodex_menu_act" 
+            name="Penjualan Obat" 
+            parent="transaksi_clinic_doodex_menu_categ" 
+            action="doodex_penjualan_obat_action" 
+            sequence="10"/>
+
+</odoo>

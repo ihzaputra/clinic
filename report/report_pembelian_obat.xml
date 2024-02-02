@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_template_pembelian_obat_pdf">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="br">
+                <t t-call="web.external_layout">
+                        <div class="page">
+                            <h1> LAPORAN PEMBELIAN OBAT</h1>
+
+                            <!-- <div class="row">
+                                <div class="col-4">
+                                    QR CODE :
+                                </div>
+                                <div class="col-8">
+                                    <img t-att-src="'data:image/png;base64,%s'%br.qr_code_penjualan" style="width:95px; height:95px; margin-left:55px;"/>
+                                </div>
+                            </div> -->
+
+                            <!-- <div class="row">
+                                <div class="col-4">
+                                    No Referensi :
+                                </div>
+                                <div class="col-8">
+                                    <span t-field="br.referensi_pembelian_obat"/>
+                                </div>
+                            </div> -->
+
+                            <div class="row">
+                                <div class="col-4">
+                                    Nama Obat :
+                                </div>
+                                <div class="col-8">
+                                    <span t-field="br.obat_id"/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    Supplier :
+                                </div>
+                                <div class="col-8">
+                                    <span t-field="br.supplier_id"/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    Quantity :
+                                </div>
+                                <div class="col-8">
+                                    <span t-field="br.qty_beli"/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    TOTAL BAYAR :
+                                </div>
+                                <div class="col-8">
+                                    <span t-field="br.bayar"/>
+                                </div>
+                            </div>
+                        </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
+
+

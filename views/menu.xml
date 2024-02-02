@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+    <menuitem id="clinic_doodex_menu_root" 
+            name="Clinic Doodex" 
+            sequence="50"/>
+
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="pasien_clinic_doodex_menu_categ" 
+            name="Pasien" 
+            parent="clinic_doodex_menu_root" 
+            sequence="10"/>
+    
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="pegawai_clinic_doodex_menu_categ" 
+            name="Pegawai" 
+            parent="clinic_doodex_menu_root" 
+            sequence="15"/>
+
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="obat_clinic_doodex_menu_categ" 
+            name="Obat" 
+            parent="clinic_doodex_menu_root" 
+            sequence="20"/>
+
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="rekam_medis_clinic_doodex_menu_categ" 
+            name="Rekam Medis" 
+            parent="clinic_doodex_menu_root" 
+            sequence="25"/>
+    
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="transaksi_clinic_doodex_menu_categ" 
+            name="Transaksi" 
+            parent="clinic_doodex_menu_root" 
+            sequence="30"/>
+    
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="supplier_clinic_doodex_menu_categ" 
+            name="Supplier" 
+            parent="clinic_doodex_menu_root" 
+            sequence="30"/>
+
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="layanan_clinic_doodex_menu_categ" 
+            name="Layanan" 
+            parent="clinic_doodex_menu_root" 
+            sequence="35"/>
+
+</odoo>

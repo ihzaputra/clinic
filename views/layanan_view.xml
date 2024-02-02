@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- doodex.layanan form view -->
+    <record id="doodex_layanan_view_form" model="ir.ui.view">
+        <field name="name">Layanan Doodex</field>
+        <field name="model">doodex.layanan</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="harga_layanan"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- doodex.layanan tree view -->
+    <record id="doodex_layanan_view_tree" model="ir.ui.view">
+        <field name="name">Layanan Doodex</field>
+        <field name="model">doodex.layanan</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="harga_layanan"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- doodex.layanan action window -->
+    <record id="doodex_layanan_action" model="ir.actions.act_window">
+        <field name="name">Daftar Layanan</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">doodex.layanan</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="layanan_clinic_doodex_menu_act" 
+            name="Layanan" 
+            parent="layanan_clinic_doodex_menu_categ" 
+            action="doodex_layanan_action" 
+            sequence="5"/>
+
+</odoo>

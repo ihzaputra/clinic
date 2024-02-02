@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- doodex.petugas.apotek form view -->
+    <record id="doodex_petugas_apotek_view_form" model="ir.ui.view">
+        <field name="name">Petugas Apotek Doodex</field>
+        <field name="model">doodex.petugas.apotek</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+
+                    <div>
+                        <h1>
+                            <field name="id_petugas_apotek" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="alamat"/>
+                        <field name="jenis_kelamin"/>
+                        <field name="tgl_lahir"/>
+                                
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- doodex.petugas.apotek tree view -->
+    <record id="doodex_petugas_apotek_view_tree" model="ir.ui.view">
+        <field name="name">Petugas Apotek Doodex</field>
+        <field name="model">doodex.petugas.apotek</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="id_petugas_apotek"/>
+                <field name="name"/>
+                <field name="alamat"/>
+                <field name="jenis_kelamin"/>
+                <field name="tgl_lahir"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- doodex.petugas.apotek action window -->
+    <record id="doodex_petugas_apotek_action" model="ir.actions.act_window">
+        <field name="name">Daftar Petugas Apotek</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">doodex.petugas.apotek</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="petugas_apotek_clinic_doodex_menu_act" 
+            name="Petugas Apotek" 
+            parent="pegawai_clinic_doodex_menu_categ" 
+            action="doodex_petugas_apotek_action" 
+            sequence="15"/>
+
+</odoo>

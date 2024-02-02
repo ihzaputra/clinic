@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- report_rekam_mediswz pdf window -->
+    <record id="report_rekam_medis_pdf" model="ir.actions.report">
+        <field name="name">Report Rekam Medis</field>
+        <field name="model">doodex.rekam.medis</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">clinic_doodex.report_template_rekam_medis_pdf</field>
+        <field name="report_file">clinic_doodex.report_template_rekam_medis_pdf</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- report_rekam_mediswz pdf window -->
+    <record id="report_pembelian_obat_pdf" model="ir.actions.report">
+        <field name="name">Report Pembelian Obat</field>
+        <field name="model">doodex.pembelian.obat</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">clinic_doodex.report_template_pembelian_obat_pdf</field>
+        <field name="report_file">clinic_doodex.report_template_pembelian_obat_pdf</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- report_rekam_mediswz pdf window -->
+    <record id="report_penjualan_obat_pdf" model="ir.actions.report">
+        <field name="name">Report Penjualan Obat</field>
+        <field name="model">doodex.penjualan.obat</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">clinic_doodex.report_template_penjualan_obat_pdf</field>
+        <field name="report_file">clinic_doodex.report_template_penjualan_obat_pdf</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

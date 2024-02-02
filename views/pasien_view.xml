@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="doodex_pasien_view_form" model="ir.ui.view">
+        <field name="name">Pasien Doodex</field>
+        <field name="model">doodex.pasien</field>
+        <field name="arch" type="xml">
+            <form string="Pasien">
+                <sheet>
+                    <div>
+                        <h1>
+                            <field name="no_antrian" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group name="Data Diri" string="Data Pasien">
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="jenis_kelamin"/>
+                        <field name="tgl_lahir"/> 
+                        <field name="alamat"/>
+                    </group>
+
+                    <group name="Index Masa Tubuh" string="Index Masa Tubuh">
+                        <field name="umur"/>
+                        <field name="tinggi"/>
+                        <field name="berat"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="doodex_pasien_view_tree" model="ir.ui.view">
+        <field name="name">Pasien Doodex</field>
+        <field name="model">doodex.pasien</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- <field name="id_pasien"/> -->
+                <field name="no_antrian"/>
+                <field name="name"/>
+                <field name="umur"/>
+                <field name="tinggi"/>
+                <field name="berat"/>
+                <field name="jenis_kelamin"/>
+                <field name="tgl_lahir"/>
+                <field name="alamat"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="doodex_pasien_action" model="ir.actions.act_window">
+        <field name="name">Daftar Pasien</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">doodex.pasien</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="pasien_clinic_doodex_menu_act" 
+            name="Pasien Doodex" 
+            parent="pasien_clinic_doodex_menu_categ" 
+            action="doodex_pasien_action" 
+            sequence="5"/>
+
+</odoo>

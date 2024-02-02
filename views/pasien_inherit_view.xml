@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_partner_view_tree_inherit_mail" model="ir.ui.view">
+        <field name="name">res.partner.view.tree.inherit.mail</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='activity_ids']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+    <!-- res.partner inherit tree view -->
+    <record id="res_partner_inherit_pasien_tree" model="ir.ui.view">
+        <field name="name">res.partner.inherit.view.tree</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <!-- Add your xpath here -->
+            <xpath expr="//field[@name='translated_display_name']" position="before">
+                <field name="id_pasien"/>
+            </xpath>
+            <xpath expr="//field[@name='translated_display_name']" position="replace">
+                <field name="nama_pasien"/>
+            </xpath>
+            <xpath expr="//field[@name='nama_pasien']" position="after">
+                <field name="umur_pasien"/>
+            </xpath>
+            <xpath expr="//field[@name='email']" position="replace">
+                <field name="gender_pasien"/>
+            </xpath>
+            <xpath expr="//field[@name='phone']" position="replace">
+                <field name="no_hp"/>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='city']" position="replace">
+                <field name="riwayat_penyakit"/>
+            </xpath>
+            <xpath expr="//field[@name='country_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- res.partner inherit form view -->
+    <record id="res_partner_inherit_pasien_form" model="ir.ui.view">
+        <field name="name">res.partner.inherit.pasien.view.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <!-- Add your xpath here -->
+            <xpath expr="//field[@name='vat']" position="replace">
+                <field name="id_pasien"/>
+            </xpath>
+            <xpath expr="//field[@name='function']" position="replace">
+                <field name="nama_pasien"/>
+            </xpath>
+            <xpath expr="//field[@name='nama_pasien']" position="after">
+                <field name="gender_pasien"/>
+            </xpath>
+            <xpath expr="//field[@name='gender_pasien']" position="after">
+                <field name="umur_pasien"/>
+            </xpath>
+            <xpath expr="//field[@name='umur_pasien']" position="after">
+                <field name="alamat_pasien"/>
+            </xpath>
+            <xpath expr="//field[@name='alamat_pasien']" position="after">
+                <field name="riwayat_penyakit"/>
+            </xpath>
+            <xpath expr="//field[@name='riwayat_penyakit']" position="after">
+                <field name="no_hp"/>
+            </xpath>
+
+            <xpath expr="//field[@name='phone']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//div[@class='oe_title mb24']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//div[@class='o_address_format']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+
+
+            <xpath expr="//field[@name='mobile']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='email']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='website']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='title']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='category_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- res.partner kanban view -->
+    <record id="res_partner_doodex_pasien_view_kanban" model="ir.ui.view">
+        <field name="name">res.partner.view.kanban</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <kanban string="Kanban Description">
+                <!-- Add your fields here -->
+                
+            </kanban>
+        </field>
+    </record>
+
+    <!-- res.partner action window -->
+    <record id="res_partner_doodex_pasien_action" model="ir.actions.act_window">
+        <field name="name">pasien</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="clinic_doodex_inherit_pasien_menu_act" 
+            name="Pasien" 
+            parent="clinic_doodex_menu_root" 
+            action="res_partner_doodex_pasien_action" 
+            sequence="10"/>
+
+</odoo>

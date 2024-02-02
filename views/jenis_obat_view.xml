@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- doodex.jenis.obat form view -->
+    <record id="doodex_jenis_obat_view_form" model="ir.ui.view">
+        <field name="name">Jenis Obat Doodex</field>
+        <field name="model">doodex.jenis.obat</field>
+        <field name="arch" type="xml">
+            <form string="Jenis Obat">
+                <sheet>
+                    <group name="Jenis" string="Posisi Jenis">
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="kode_jenis"/>
+                        <field name="jumlah_obat"/>
+                    </group>
+
+                    <group name="Rak" string="Posisi Obat">
+                        <field name="letak"/>
+                        <field name="obat_ids" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- doodex.jenis.obat tree view -->
+    <record id="doodex_jenis_obat_view_tree" model="ir.ui.view">
+        <field name="name">Jenis Obat Doodex</field>
+        <field name="model">doodex.jenis.obat</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="kode_jenis"/>
+                <field name="letak"/>
+                <field name="jumlah_obat"/>
+                <!-- <field name="daftar"/> -->
+            </tree>
+        </field>
+    </record>
+
+    <!-- doodex.jenis.obat action window -->
+    <record id="doodex_jenis_obat_action" model="ir.actions.act_window">
+        <field name="name">Daftar Jenis Obat</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">doodex.jenis.obat</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="jenis_obat_clinic_doodex_menu_act" 
+            name="Jenis Obat" 
+            parent="obat_clinic_doodex_menu_categ" 
+            action="doodex_jenis_obat_action" 
+            sequence="10"/>
+
+</odoo>

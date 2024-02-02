@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- doodex.pembayaran form view -->
+    <record id="doodex_pembayaran_view_form" model="ir.ui.view">
+        <field name="name">Pembayaran Doodex</field>
+        <field name="model">doodex.pembayaran</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="id_pembayaran"/>
+                        <field name="tgl_pembayaran"/>
+                        <field name="metode_pembayaran"/>
+                        <field name="state"/>
+                        <!-- <field name="pendaftaran"/> -->
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- doodex.pembayaran tree view -->
+    <record id="doodex_pembayaran_view_tree" model="ir.ui.view">
+        <field name="name">Pembayaran Doodex</field>
+        <field name="model">doodex.pembayaran</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="id_pembayaran"/>
+                <field name="tgl_pembayaran"/>
+                <field name="metode_pembayaran"/>
+                <field name="state"/>
+                <!-- <field name="pendaftaran"/> -->
+            </tree>
+        </field>
+    </record>
+
+    <!-- doodex.pembayaran action window -->
+    <record id="doodex_pembayaran_action" model="ir.actions.act_window">
+        <field name="name">Daftar Pembayaran</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">doodex.pembayaran</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="pembayaran_clinic_doodex_menu_act" 
+            name="Pembayaran Doodex" 
+            parent="pembayaran_clinic_doodex_menu_categ" 
+            action="doodex_pembayaran_action" 
+            sequence="5"/>
+
+</odoo>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- doodex.pembelian.obat form view -->
+    <record id="doodex_pembelian_obat_view_form" model="ir.ui.view">
+        <field name="name">Doodex Pembelian</field>
+        <field name="model">doodex.pembelian.obat</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <!-- <div>
+                        <h1>
+                            <field name="referensi_pembelian_obat" readonly="1"/>
+                        </h1>
+                    </div> -->
+
+                    <group>
+                        <!-- Add your fields here -->
+                        <!-- <field name="name"/> -->
+                        <field name="obat_id"/>
+                        <field name="modal"/>
+                        <field name="supplier_id"/>
+                        <field name="qty_beli"/>
+                        <field name="bayar"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- doodex.pembelian.obat tree view -->
+    <record id="doodex_pembelian_obat_view_tree" model="ir.ui.view">
+        <field name="name">Doodex Pembelian</field>
+        <field name="model">doodex.pembelian.obat</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <button string="Print Laporan Pembelian Obat" name="%(clinic_doodex.report_pembelian_obat_pdf)d" type="action" icon="fa-print" class="oe_highlight"/>
+                <!-- <field name="referensi_pembelian_obat"/> -->
+                <field name="obat_id"/>
+                <field name="modal"/>
+                <field name="supplier_id"/>
+                <field name="qty_beli"/>
+                <field name="bayar"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- doodex.pembelian.obat action window -->
+    <record id="doodex_pembelian_obat_action" model="ir.actions.act_window">
+        <field name="name">Daftar Pembelian</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">doodex.pembelian.obat</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="clinic_doodex_pembelian_menu_act" 
+            name="Pembelian" 
+            parent="transaksi_clinic_doodex_menu_categ" 
+            action="doodex_pembelian_obat_action" 
+            sequence="5"/>
+
+</odoo>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- doodex.rekam.medis form view -->
+    <record id="doodex_rekam_medis_view_form" model="ir.ui.view">
+        <field name="name">Rekam Medis Doodex</field>
+        <field name="model">doodex.rekam.medis</field>
+        <field name="arch" type="xml">
+            <form string="Rekam Medis">
+                <sheet>
+                    <group>
+                        <field name="qr_code_rekam_medis" widget="image"/>
+                        <group name="Data Diri" string="Data Pasien">
+                            <!-- Add your fields here -->
+                                <field name="name" required="1"/>
+                                <field name="umur"/>
+                                <field name="tinggi"/>
+                                <field name="berat"/>
+                                <field name="jenis_kelamin" required="1"/>
+                                <field name="no_antrian"/>
+                        </group>
+                            <group name="Keluhan" string="Keluhan Dan Riwayat Penyakit">
+                                <field name="keluhan" required="1"/>
+                            </group>
+                            <group name="Janji Temu" string="Janji Temu">
+                                <field name="total_bayar_layanan"/>
+                                <field name="janji_temu_ids">
+                                    <tree editable='bottom'>
+                                        <field name="janji_temu_id"/>
+                                        <field name="dokter"/>
+                                        <field name="pasien"/>
+                                        <field name="tgl_janji_temu"/>
+                                        <field name="harga"/>
+                                    </tree>
+                                </field>
+                            </group>
+                            <group name="Obat" string="Resep">
+                                <field name="total_bayar"/>
+                                <field name="detail_rekam_medis_ids">
+                                    <tree editable='bottom'>
+                                        <field name="obat_id"/>
+                                        <field name="harga_satuan"/>
+                                        <field name="qty"/>
+                                        <field name="subtotal" sum="Total"/>
+                                    </tree>
+                                </field>
+                            </group>
+                            <group name="Pembayaran" string="Pembayaran">
+                                <field name="total_bayar_administrasi"/>
+                            </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- doodex.rekam.medis tree view -->
+    <record id="doodex_rekam_medis_view_tree" model="ir.ui.view">
+        <field name="name">Rekam Medis Doodex</field>
+        <field name="model">doodex.rekam.medis</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <button string="Print Laporan Rekam Medis" name="%(clinic_doodex.report_rekam_medis_pdf)d" type="action" icon="fa-print" class="oe_highlight"/>
+                <field name="no_antrian"/>
+                <field name="name" />
+                <field name="umur"/>
+                <field name="tinggi"/>
+                <field name="berat"/>
+                <field name="jenis_kelamin" />
+                <field name="keluhan"/> 
+                <field name="dokter_id" />
+                <field name="detail_rekam_medis_ids" />
+                <field name="janji_temu_ids"/>
+                <field name="total_bayar_administrasi"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- doodex.rekam.medis action window -->
+    <record id="doodex_rekam_medis_action" model="ir.actions.act_window">
+        <field name="name">Daftar Rekam Medis</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">doodex.rekam.medis</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="rekam_medis_clinic_doodex_menu_act" 
+            name="Rekam Medis Doodex" 
+            parent="rekam_medis_clinic_doodex_menu_categ" 
+            action="doodex_rekam_medis_action" 
+            sequence="5"/>
+
+</odoo>

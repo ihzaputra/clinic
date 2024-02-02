@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- doodex.janji.temu form view -->
+    <record id="doodex_janji_temu_view_form" model="ir.ui.view">
+        <field name="name">Janji Temu Doodex</field>
+        <field name="model">doodex.janji.temu</field>
+        <field name="arch" type="xml">
+            <form string="Form Janji Temu">
+
+                <header>
+                    <button string="On Progress" name="action_on_progress" type="object" states='draft' class="oe_highlight" />
+                    <button string="Done" name="action_done" type="object" states='on progress' class="oe_highlight" />
+                    <button string="Cancel" name="action_cancel" type="object" states='on progress' confirm='apakah janji temu ini akan di cancel?' class="oe_highlight"/>
+                    <button string="Draft" name="action_draft" type="object" states='cancel' confirm='apakah janji temu ini akan di edit?' class="oe_highlight"/>
+                    <field name="state" widget='statusbar' statusbar_visible='draft, on progress, done'/>
+                </header>
+
+                <sheet>
+                    <div>
+                        <h1>
+                            <field name="referensi_janji_temu" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <!-- <field name="state" widget='statusbar' statusbar_visible='draft, on progress, done'/> -->
+                        <!-- Add your fields here -->
+                        <field name="name" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        <field name="dokter" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        <field name="pasien" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        <field name="tgl_janji_temu" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        <field name="layanan_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        <field name="harga" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- doodex.janji.temu tree view -->
+    <record id="doodex_janji_temu_view_tree" model="ir.ui.view">
+        <field name="name">Janji Temu Doodex</field>
+        <field name="model">doodex.janji.temu</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="referensi_janji_temu"/>
+                <field name="name"/>
+                <field name="dokter"/>
+                <field name="pasien"/>
+                <field name="tgl_janji_temu"/>
+                <field name="layanan_id"/>
+                <field name="harga"/>
+                <field name="state" 
+                decoration-danger="state == 'draft'"
+                decoration-muted="state == 'cancelled'"
+                decoration-info="state == 'confirm'"
+                decoration-primary="state == 'done'"
+                widget = "badge"/>  
+            </tree>
+        </field>
+    </record>
+
+    <!-- doodex.janji.temu action window -->
+    <record id="doodex_janji_temu_action" model="ir.actions.act_window">
+        <field name="name">Daftar Janji Temu</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">doodex.janji.temu</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="janji_temu_clinic_doodex_menu_act" 
+            name="Janji Temu" 
+            parent="layanan_clinic_doodex_menu_categ" 
+            action="doodex_janji_temu_action" 
+            sequence="10"/>
+
+</odoo>

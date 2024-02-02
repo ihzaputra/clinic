@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_doodex_pasien,access.doodex.pasien,model_doodex_pasien,,1,1,1,1
+access_doodex_dokter,access.doodex.dokter,model_doodex_dokter,,1,1,1,1
+access_doodex_perawat,access.doodex.perawat,model_doodex_perawat,,1,1,1,1
+access_doodex_petugas_apotek,access.doodex.petugas.apotek,model_doodex_petugas_apotek,,1,1,1,1
+access_doodex_petugas_kebersihan,access.doodex.petugas.kebersihan,model_doodex_petugas_kebersihan,,1,1,1,1
+access_doodex_obat,access.doodex.obat,model_doodex_obat,,1,1,1,1
+access_doodex_jenis_obat,access.doodex.jenis.obat,model_doodex_jenis_obat,,1,1,1,1
+access_doodex_penjualan_obat,access.doodex.penjualan.obat,model_doodex_penjualan_obat,,1,1,1,1
+access_doodex_detail_penjualan_obat,access.doodex.detail.penjualan.obat,model_doodex_detail_penjualan_obat,,1,1,1,1
+access_doodex_rekam_medis,access.doodex.rekam.medis,model_doodex_rekam_medis,,1,1,1,1
+access_doodex_detail_rekam_medis,access.doodex.detail.rekam.medis,model_doodex_detail_rekam_medis,,1,1,1,1
+access_doodex_supplier_obat,access.doodex.supplier.obat,model_doodex_supplier_obat,,1,1,1,1
+access_doodex_pembelian_obat,access.doodex.pembelian.obat,model_doodex_pembelian_obat,,1,1,1,1
+access_doodex_janji_temu,access.doodex.janji.temu,model_doodex_janji_temu,,1,1,1,1
+access_doodex_layanan,access.doodex.layanan,model_doodex_layanan,,1,1,1,1
